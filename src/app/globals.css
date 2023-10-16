@@ -8,3 +8,11 @@ h2 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+input:focus {
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, #996DFF, #C7AFFF);
+  border-image-slice: 1;
+  box-sizing: border-box;
+  border-radius: 0.375rem !important;
+}

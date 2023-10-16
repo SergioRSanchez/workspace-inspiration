@@ -61,9 +61,10 @@ export default function Home() {
             <input 
               type="text" 
               placeholder='Digite seu e-mail'
-              className='px-2 sm:px-3 py-3 sm:py-4 bg-[#202024] rounded-md sm:w-[18.1875rem] text-white placeholder:text-[#C4C4CC] active:ring-[1px] active:ring-[#996DFF] border-none focus:ring-[1px] focus:ring-[#996DFF] outline-0 transition-all duration-300'
+              className='px-2 sm:px-3 py-3 sm:py-4 rounded-md bg-[#202024] sm:w-[18.1875rem] text-white placeholder:text-[#C4C4CC] active:ring-[1px] active:ring-[#996DFF] border-[1px] border-transparent outline-0 transition-all duration-300'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              spellCheck={false}
             />
             <button 
               type="submit"

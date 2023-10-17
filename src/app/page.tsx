@@ -6,6 +6,9 @@ import Image from 'next/image'
 
 import { ChevronRight } from 'lucide-react'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import bg from '@/assets/bg.png'
 import rocket from '@/assets/rocket.svg'
 import lightning from '@/assets/lightning.svg'
@@ -22,15 +25,29 @@ export default function Home() {
       .required('O campo de e-mail é obrigatório'),
   });
 
+  const notifyError = () => {
+    toast('Entre com um e-mail válido', {
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
+  
+  const notifySuccess = () => {
+    toast(`Obrigado por se inscrever! Receba nossa newsletter em ${email}`, {
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
+
   function handleSubmit(e: any) {
     e.preventDefault()
 
     if (!validationSchema.isValidSync({ email })) {
-      alert('Entre com um e-mail válido')
+      // alert('Entre com um e-mail válido')
+      notifyError()
       return
     }
 
-    alert(`Obrigado por se inscrever! Receba nossa newsletter em ${email}`)
+    // alert(`Obrigado por se inscrever! Receba nossa newsletter em ${email}`)
+    notifySuccess()
     setEmail('')
   }
 
@@ -139,6 +156,7 @@ export default function Home() {
 
         </div>
       </div>
+      <ToastContainer autoClose={3000} progressStyle={{ background: 'linear-gradient(to right, #996DFF, #C7AFFF)'}}/>
     </div>
   )
 }
